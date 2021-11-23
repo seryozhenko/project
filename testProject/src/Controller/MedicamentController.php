@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use OpenApi\Annotations as OA;
 /**
  * @OA\Get(
  *     path="/medicament"
@@ -27,7 +28,7 @@ class MedicamentController extends AbstractController
         $this->serviceCRUD = new CRUDService($serviceController, Medicament::class);
     }
     /**
-     * @OA\GET(
+     * @OA\Get(
      *     path="/medicament/",
      *     tags={"medicament"},
      *     operationId="list",
@@ -74,7 +75,7 @@ class MedicamentController extends AbstractController
      *         )
      *     )
      * )
-     * @OA\GET(
+     * @OA\Get(
      *     path="/medicament/create",
      *     tags={"medicament"},
      *     operationId="showCreateForm",
@@ -125,7 +126,7 @@ class MedicamentController extends AbstractController
         return 400;
     }
     /**
-     * @OA\GET(
+     * @OA\Get(
      *     path="/medicament/{id}/",
      *     tags={"medicament"},
      *     operationId="show",
@@ -167,7 +168,7 @@ class MedicamentController extends AbstractController
         return new Response('Not found', 404);
     }
     /**
-     * @OA\GET(
+     * @OA\Get(
      *     path="/medicament/edit/{id}",
      *     tags={"medicament"},
      *     operationId="showEditForm",

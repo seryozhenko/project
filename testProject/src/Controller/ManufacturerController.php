@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use OpenApi\Annotations as OA;
 /**
  * @OA\Get(
  *     path="/manufacturer"
@@ -27,7 +28,7 @@ class ManufacturerController extends AbstractController
         $this->serviceCRUD = new CRUDService($serviceController, Manufacturer::class);
     }
     /**
-     * @OA\GET(
+     * @OA\Get(
      *     path="/manufacturer/",
      *     tags={"manufacturer"},
      *     operationId="list",
@@ -72,7 +73,7 @@ class ManufacturerController extends AbstractController
      *         )
      *     )
      * )
-     * @OA\GET(
+     * @OA\Get(
      *     path="/manufacturer/create",
      *     tags={"manufacturer"},
      *     operationId="showCreateForm",
@@ -116,7 +117,7 @@ class ManufacturerController extends AbstractController
         return 400;
     }
     /**
-     * @OA\GET(
+     * @OA\Get(
      *     path="/manufacturer/{id}/",
      *     tags={"manufacturer"},
      *     operationId="show",
@@ -154,7 +155,7 @@ class ManufacturerController extends AbstractController
         return new Response('Not found',404);
     }
     /**
-     * @OA\GET(
+     * @OA\Get(
      *     path="/manufacturer/edit/{id}",
      *     tags={"manufacturer"},
      *     operationId="showEditForm",

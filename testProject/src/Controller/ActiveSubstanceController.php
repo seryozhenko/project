@@ -11,12 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Annotations as OA;
-/**
- * @OA\Server(url="localhost:85")
- */
-/**
- * @OA\Info(title="My First API", version="0.1")
- */
+
 /**
  * @OA\Get(
  *     path="/active_substance"
@@ -34,7 +29,7 @@ class ActiveSubstanceController extends AbstractController
         $this->serviceCRUD = new CRUDService($serviceController, ActiveSubstance::class);
     }
     /**
-     * @OA\GET(
+     * @OA\Get(
      *     path="/active_substance/",
      *     tags={"active_substance"},
      *     operationId="list",
@@ -79,7 +74,7 @@ class ActiveSubstanceController extends AbstractController
      *         )
      *     )
      * )
-     * @OA\GET(
+     * @OA\Get(
      *     path="/active_substance/new",
      *     tags={"active_substance"},
      *     operationId="showCreateForm",
@@ -124,7 +119,7 @@ class ActiveSubstanceController extends AbstractController
     }
 
     /**
-     * @OA\GET(
+     * @OA\Get(
      *     path="/active_substance/{id}/",
      *     tags={"active_substance"},
      *     operationId="show",
@@ -163,7 +158,7 @@ class ActiveSubstanceController extends AbstractController
     }
 
     /**
-     * @OA\GET(
+     * @OA\Get(
      *     path="/active_substance/{id}/edit",
      *     tags={"active_substance"},
      *     operationId="showEditForm",
