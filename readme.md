@@ -17,3 +17,8 @@ Install docker/ docker-compose.
 - docker-compose up -d --force-recreate --build
 - docker-compose exec php-fpm composer install
 - docker-compose exec php-fpm php bin/console doctrine:migrations:migrate
+
+## site
+http://localhost:84/
+## Swagger
+http://localhost:8082/
