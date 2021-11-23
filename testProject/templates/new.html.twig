@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New {{entityName}}{% endblock %}
+
+{% block body %}
+    <h1>Add new {{entityName}}</h1>
+
+    {{ include('_form.html.twig') }}
+
+    <a href="{{ path(path) }}">back to list</a>
+{% endblock %}

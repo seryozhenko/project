@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block title %}Manufacturers{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1>Manufacturers</h1>
+        <a href="{{ path('manufacturer_new') }}" class="btn btn-info">Create</a>
+        <div class="row list-group-item-info">
+            <div class="col-1">ID</div>
+            <div class="col-4">Name of manufacturer</div>
+            <div class="col-4">Link</div>
+            <div class="col-3">Action</div>
+        </div>
+        {% for manufacturer in manufacturers %}
+          <div class="row">
+              <div class="col-1">{{manufacturer.id}}</div>
+              <div class="col-4">{{manufacturer.manufacturerName}}</div>
+              <div class="col-4"><a href="{{manufacturer.link}}">Go to site</a></div>
+              <div class="col-3">
+                  <a href="{{ path('manufacturer_show', {'id': manufacturer.id}) }}" class="btn btn-info">Show</a>
+                  <a href="{{ path('manufacturer_edit', {'id': manufacturer.id}) }}" class="btn btn-info">Edit</a>
+              </div>
+          </div>
+        {% else %}
+          <div class="g-col-12">No records yet</div>
+        {% endfor %}
+    </div>
+{% endblock %}
+

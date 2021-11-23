@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Manufacturer{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Manufacturer</h1>
+    <div class="row list-group-item-info">
+        <div class="col-2">ID</div>
+        <div class="col-3">Name of manufacturer</div>
+        <div class="col-3">Link</div>
+    </div>
+    <div class="row">
+        <div class="col-2">{{ entity.id }}</div>
+        <div class="col-3">{{ entity.manufacturerName }}</div>
+        <div class="col-3"><a htre="{{ entity.link }}">Go to site</a></div>
+    </div>
+    <div class="row">
+        <a href="{{ path('manufacturer_list') }}" class="btn col-1 btn-light">Back</a>
+        <a href="{{ path('manufacturer_edit', {'id': entity.id}) }}" class="btn btn-info col-1">Edit</a>
+        {{ include('_delete_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}

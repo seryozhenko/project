@@ -1,0 +1,407 @@
+openapi: 3.0.0
+info:
+  title: 'My First API'
+  version: '0.1'
+servers:
+  -
+    url: 'localhost:85'
+paths:
+  /active_substance:
+    get: {  }
+  /active_substance/:
+    get:
+      tags:
+        - active_substance
+      description: 'Show all active substances in array'
+      operationId: list
+      responses:
+        '200':
+          description: 'Rendered page'
+  /active_substance/new:
+    get:
+      tags:
+        - active_substance
+      description: 'Create form for adding new object'
+      operationId: showCreateForm
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - active_substance
+      description: 'Save new object'
+      operationId: create
+      parameters:
+        -
+          name: body
+          in: path
+          required: true
+          content:
+            application/json:
+              schema:
+                properties:
+                  substanceName: { type: string }
+                type: object
+      responses:
+        '202':
+          description: Created
+        '400':
+          description: 'Invalid name'
+  '/active_substance/{id}/':
+    get:
+      tags:
+        - active_substance
+      description: 'Find active substance by id'
+      operationId: show
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Id of active substance that needed'
+          required: true
+          schema:
+            type: integer
+            format: int64
+            maximum: 10
+            minimum: 1
+      responses:
+        '404':
+          description: 'Not found'
+  '/active_substance/{id}/edit':
+    get:
+      tags:
+        - active_substance
+      description: 'Create form for editing existing object'
+      operationId: showEditForm
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Id of active substance that needed'
+          required: true
+          schema:
+            type: integer
+            format: int64
+            maximum: 10
+            minimum: 1
+      responses:
+        '404':
+          description: 'Not found'
+  '/active_substance/edit/{id}':
+    post:
+      tags:
+        - active_substance
+      description: 'Save changes'
+      operationId: edit
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Id of active substance that needed'
+          required: true
+          schema:
+            type: integer
+            format: int64
+            maximum: 10
+            minimum: 1
+        -
+          name: body
+          in: path
+          required: true
+          content:
+            application/json:
+              schema:
+                properties:
+                  activeSubstanceName: { type: string }
+                type: object
+      responses:
+        '400':
+          description: 'Invalid name'
+  '/active_substance/{id}':
+    post:
+      tags:
+        - active_substance
+      description: 'Create form for editing existing object'
+      operationId: delete
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Id if active substance that needed'
+          required: true
+          schema:
+            type: integer
+            format: int64
+            maximum: 10
+            minimum: 1
+      responses:
+        '200':
+          description: Deleted
+  /manufacturer:
+    get: {  }
+  /manufacturer/:
+    get:
+      tags:
+        - manufacturer
+      description: 'Show all manufacturers in array'
+      operationId: list
+      responses:
+        '200':
+          description: 'Rendered page'
+  /manufacturer/create:
+    get:
+      tags:
+        - manufacturer
+      description: 'Create form for adding new object'
+      operationId: showCreateForm
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - manufacturer
+      description: 'Save new object'
+      operationId: create
+      parameters:
+        -
+          name: body
+          in: path
+          required: true
+          content:
+            application/json:
+              schema:
+                properties:
+                  manufacturerName: { type: string }
+                  link: { type: string }
+                type: object
+      responses:
+        '202':
+          description: Created
+        '400':
+          description: 'Invalid name'
+  '/manufacturer/{id}/':
+    get:
+      tags:
+        - manufacturer
+      description: 'Find manufacturer by id'
+      operationId: show
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Id of manufacturer that needed'
+          required: true
+          schema:
+            type: integer
+            format: int64
+            maximum: 10
+            minimum: 1
+      responses:
+        '404':
+          description: 'Not found'
+  '/manufacturer/edit/{id}':
+    get:
+      tags:
+        - manufacturer
+      description: 'Create form for editing existing object'
+      operationId: showEditForm
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Id of manufacturer that needed'
+          required: true
+          schema:
+            type: integer
+            format: int64
+            maximum: 10
+            minimum: 1
+      responses:
+        '404':
+          description: 'Not found'
+    post:
+      tags:
+        - manufacturer
+      description: 'Save changes'
+      operationId: edit
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Id of manufacturer that needed'
+          required: true
+          schema:
+            type: integer
+            format: int64
+            maximum: 10
+            minimum: 1
+        -
+          name: body
+          in: path
+          required: true
+          content:
+            application/json:
+              schema:
+                properties:
+                  manufacturerName: { type: string }
+                  link: { type: string }
+                type: object
+      responses:
+        '400':
+          description: 'Invalid name'
+  '/manufacturer/delete/{id}':
+    post:
+      tags:
+        - manufacturer
+      description: 'Create form for editing existing object'
+      operationId: delete
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Id if manufacturer that needed'
+          required: true
+          schema:
+            type: integer
+            format: int64
+            maximum: 10
+            minimum: 1
+      responses:
+        '200':
+          description: Deleted
+  /medicament:
+    get: {  }
+  /medicament/:
+    get:
+      tags:
+        - medicament
+      description: 'Show all medicaments in array'
+      operationId: list
+      responses:
+        '200':
+          description: 'Rendered page'
+  /medicament/create:
+    get:
+      tags:
+        - medicament
+      description: 'Create form for adding new object'
+      operationId: showCreateForm
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - medicament
+      description: 'Save new object'
+      operationId: create
+      parameters:
+        -
+          name: body
+          in: path
+          required: true
+          content:
+            application/json:
+              schema:
+                properties:
+                  medicamentName: { type: string }
+                  substanceId: { type: number }
+                  manufacturerId: { type: number }
+                  price: { type: number }
+                type: object
+      responses:
+        '202':
+          description: Created
+        '400':
+          description: 'Invalid name'
+  '/medicament/{id}/':
+    get:
+      tags:
+        - medicament
+      description: 'Find medicament by id'
+      operationId: show
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Id of medicament that needed'
+          required: true
+          schema:
+            type: integer
+            format: int64
+            maximum: 10
+            minimum: 1
+      responses:
+        '404':
+          description: 'Not found'
+  '/medicament/edit/{id}':
+    get:
+      tags:
+        - medicament
+      description: 'Create form for editing existing object'
+      operationId: showEditForm
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Id of medicament that needed'
+          required: true
+          schema:
+            type: integer
+            format: int64
+            maximum: 10
+            minimum: 1
+      responses:
+        '404':
+          description: 'Not found'
+    post:
+      tags:
+        - medicament
+      description: 'Save changes'
+      operationId: edit
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Id of medicament that needed'
+          required: true
+          schema:
+            type: integer
+            format: int64
+            maximum: 10
+            minimum: 1
+        -
+          name: body
+          in: path
+          required: true
+          content:
+            application/json:
+              schema:
+                properties:
+                  medicamentName: { type: string }
+                  substanceId: { type: number }
+                  manufacturerId: { type: number }
+                  price: { type: number }
+                type: object
+      responses:
+        '400':
+          description: 'Invalid name'
+  '/medicament/delete/{id}':
+    post:
+      tags:
+        - medicament
+      description: 'Create form for editing existing object'
+      operationId: delete
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'Id if medicament that needed'
+          required: true
+          schema:
+            type: integer
+            format: int64
+            maximum: 10
+            minimum: 1
+      responses:
+        '200':
+          description: Deleted

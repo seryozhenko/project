@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block title %}Medicaments{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1>Medicaments</h1>
+        <a href="{{ path('medicament_new') }}" class="btn btn-info">Create</a>
+        <div class="row list-group-item-info">
+            <div class="col-1">ID</div>
+            <div class="col-3">Name of medicament</div>
+            <div class="col-3">Substance ID</div>
+            <div class="col-3">Manufacturer ID</div>
+            <div class="col-2">Action</div>
+        </div>
+        {% for medicament in medicaments %}
+          <div class="row">
+              <div class="col-1">{{medicament.id}}</div>
+              <div class="col-3">{{medicament.medicamentName}}</div>
+              <div class="col-3">{{medicament.substanceId}}</div>
+              <div class="col-3">{{medicament.manufacturerId}}</div>
+              <div class="col-2">
+                  <a href="{{ path('medicament_show', {'id': medicament.id}) }}" class="btn btn-info">Show</a>
+                  <a href="{{ path('medicament_edit', {'id': medicament.id}) }}" class="btn btn-info">Edit</a>
+              </div>
+          </div>
+        {% else %}
+          <div class="g-col-12">No records yet</div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Active substance{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <h1>Active substance</h1>
+        <div class="row list-group-item-info">
+            <div class="col-2">ID</div>
+            <div class="col-5">Name of substance</div>
+            <div class="col-5">Action</div>
+        </div>
+        {% for active_substance in active_substances %}
+        <div class="row">
+                <div class="col-2">{{ active_substance.id }}</div>
+                <div class="col-5">{{ active_substance.substanceName }}</div>
+                <div class="col-5">
+                    <a href="{{ path('active_substance_show', {'id': active_substance.id}) }}" class="btn btn-info">Show</a>
+                    <a href="{{ path('active_substance_edit', {'id': active_substance.id}) }}" class="btn btn-info">Edit</a>
+                </div>
+        </div>
+        {% else %}
+        <div class="row">
+                <div class="col-12">no records found</div>
+        </div>
+        {% endfor %}
+    <a href="{{ path('active_substance_new') }}" class="btn btn-info">Create new</a>
+{% endblock %}

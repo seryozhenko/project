@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit {{entityName}}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Edit {{entityName}}</h1>
+        <div class="row">
+            {{ include('_form.html.twig', {'button_label': 'Update'}) }}
+            <a href="{{ path(path) }}" class="btn btn-info col-1">Back</a>
+            {{ include('_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
